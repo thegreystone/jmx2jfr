@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Agent-Class: se.hirt.jmx2jfr.Agent
+Can-Redefine-Classes: false
+Can-Retransform-Classes: false
+Premain-Class: se.hirt.jmx2jfr.Agent
+Bundle-ManifestVersion: 2
+Bundle-Name: Agent
+Bundle-SymbolicName: se.hirt.jmx2jfr
+Bundle-Version: 1.0.0.qualifier
+Export-Package: se.hirt.jmx2jfr
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7

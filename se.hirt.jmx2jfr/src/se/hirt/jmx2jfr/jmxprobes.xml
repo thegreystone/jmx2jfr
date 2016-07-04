@@ -1,0 +1,79 @@
+<!--
+	This is an example configuration file. It should be edited to capture the MBean 
+	attributes you are interested in.
+	
+	Use it with the agent in the following manner:
+	java -javaagent:<path to jmx2jfr.jar>=<path to this file> <your normal vmargs>	
+-->
+<jmx2jfr>
+    <!-- Time to wait before retrying getting an MBean attribute in ms -->
+	<retrytime>60000</retrytime>
+	
+	<!-- Time to wait until starting in ms --> 
+	<delay>10000</delay>
+	
+	<!-- How often to get the attributes and emit events for them, in ms -->
+	<period>1000</period>
+	
+	<!-- clean: Use name or type keys for event name. Leads to cleaner event 
+	     type names, but can result in name collisions if you have MBeans with 
+	     the same name in the same domain.
+	     canonical: ugly event type names, but guaranteed not to collide -->
+	<namingmode>clean</namingmode>
+	
+	<!-- objectname:    MBean name - look it up in JMC
+	     attributename: Attribute name - look it up in JMC
+	     contenttype:   [None | Bytes | Timestamp | Millis | Nanos | Ticks | Address] -->
+	<attributes>
+		<attribute>
+			<objectname>java.lang:type=OperatingSystem</objectname>
+			<attributename>FreeSwapSpaceSize</attributename>
+			<contenttype>Bytes</contenttype>
+		</attribute>
+		<attribute>
+			<objectname>java.lang:type=OperatingSystem</objectname>
+			<attributename>TotalSwapSpaceSize</attributename>
+			<contenttype>Bytes</contenttype>
+		</attribute>
+		<attribute>
+			<objectname>java.lang:type=OperatingSystem</objectname>
+			<attributename>AvailableProcessors</attributename>
+			<contenttype>None</contenttype>
+		</attribute>
+		<attribute>
+			<objectname>java.lang:type=OperatingSystem</objectname>
+			<attributename>AvailableProcessors</attributename>
+			<contenttype>None</contenttype>
+		</attribute>
+		<attribute>
+			<objectname>java.lang:type=OperatingSystem</objectname>
+			<attributename>Name</attributename>
+			<contenttype>None</contenttype>
+		</attribute>
+		<attribute>
+			<objectname>java.lang:type=Threading</objectname>
+			<attributename>PeakThreadCount</attributename>
+			<contenttype>None</contenttype>
+		</attribute>
+		<attribute>
+			<objectname>java.lang:type=Threading</objectname>
+			<attributename>CurrentThreadCpuTime</attributename>
+			<contenttype>Nanos</contenttype>
+		</attribute>
+		<attribute>
+			<objectname>java.lang:type=Runtime</objectname>
+			<attributename>StartTime</attributename>
+			<contenttype>Timestamp</contenttype>
+		</attribute>
+		<attribute>
+			<objectname>java.lang:type=Runtime</objectname>
+			<attributename>StartTime</attributename>
+			<contenttype>Timestamp</contenttype>
+		</attribute>
+		<attribute>
+			<objectname>java.lang:type=Runtime</objectname>
+			<attributename>Uptime</attributename>
+			<contenttype>Millis</contenttype>
+		</attribute>
+	</attributes>
+</jmx2jfr>
